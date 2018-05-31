@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nebulas Defender</title>
+</head>
+
+<body>
+    <header>
+        <div class="container d-flex align-items-center">
+            <div class="logo">
+                <img src="img/logo.png">
+                <span>Nebulas Defender
+                </span>
+            </div>
+            <div class="slogan">
+                Keep your tokens more secure!
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="send-tab" data-toggle="tab" href="#send-nas" role="tab" aria-controls="send" aria-selected="false">Send NAS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="faq" aria-selected="true">FAQ</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade" id="profile" role="tabpanel">
+                <div class="tab-header">
+                    <h3>Profile</h3>
+                </div>
+                <div class="tab-body">
+                    <div class="d-flex justify-content-between align-items-center balance">
+                        <div>Balance:
+                            <span>loading</span>
+                        </div>
+                        <button class="btn btn-primary btn-outline-success btn-deposit">Top up</button>
+                    </div>
+                    <div class="passphrase">
+                        <h3>Change or set passphrase</h3>
+                        <div class="text-danger disclaimer offset-sm-2">
+                            Do not use a private key as a passphrase. It is unsafe and not recommended.
+                        </div>
+                        <form id="passphrase-form">
+                            <div class="form-group row">
+                                <label for="old-passphrase" class="col-sm-2 col-form-label">Old passphrase</label>
+                                <input type="password" class="col-sm-10 form-control" id="old-passphrase" placeholder="Leave this field blank If you have not set a passphrase previously">
+                            </div>
+                            <div class="form-group row">
+                                <label for="new-passphrase" class="col-sm-2 col-form-label">New passphrase</label>
+                                <input type="password" class="col-sm-10 form-control" id="new-passphrase" minlength="6" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Set passphrase</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="send-nas" role="tabpanel">
+                <div class="tab-header">
+                    <h3>Send NAS</h3>
+                    <div class="d-flex justify-content-between align-items-center balance">
+                        <div>Balance:
+                            <span>loading</span>
+                        </div>
+                    </div>
+                    <form id="send-form">
+                        <div class="form-group row">
+                            <label for="send-to" class="col-sm-2 col-form-label">To address</label>
+                            <input type="text" class="col-sm-10 form-control" id="send-to" required>
+                        </div>
+                        <div class="form-group row">
+                            <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+                            <input type="text" class="col-sm-10 form-control" id="amount" required>
+                        </div>
+                        <div class="form-group row">
+                            <label for="passphrase" class="col-sm-2 col-form-label">Your passphrase</label>
+                            <input type="password" class="col-sm-10 form-control" id="passphrase" required>
+                            <small class="offset-sm-2 form-text text-danger d-block">A passphrase is NOT a private key.</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send NAS</button>
+                    </form>
+                </div>
+                <div class="tab-body">
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="history" role="tabpanel">
+                <div class="tab-header">
+                    <h3>History</h3>
+                </div>
+                <div class="tab-body">
+                    <table class="transactions">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Recipient</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="no-transactions">
+                                <td colspan="3">
+                                    No transactions
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade show active" id="faq" role="tabpanel">
+                <div class="tab-header">
+                    <h3>FAQ</h3>
+                </div>
+                <div class="tab-body">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What is this service for?
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    The service keeps your funds on the balance of the smart contract and provides an additional level of protection of your
+                                    tokens with a passphrase. Therefore, to make a transaction, you need to have access to
+                                    your wallet and know the passphrase. This means that if your private key has been compromised,
+                                    the attacker will not be able to use your funds if he does not know the passphrase.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How to start using the service?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    Set a passphrase on the "profile" tab and top up your balance. After that, you can make transactions using the service.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Can anyone get my passphrase using the Nebulas Explorer?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    No, nobody can know your passphrase via Nebulas Explorer. Only the hash of your passphrase is stored in the smart contract.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                        I forgot my passphrase. Is there any way to restore it?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                <div class="card-body">
+                                    No, the passphrase cannot be recovered.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        How can I withdraw funds from the balance?
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                <div class="card-body">
+                                    Just make a transfer to your own wallet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <!-- <span>Powered by Nebulas</span> -->
+            <div class="smInfo">
+                <span>Check smart contract:</span>
+                <a target="_blank" href="https://explorer.nebulas.io/#/tx/1e69a1115b427853c9e0f207a8e68d21804be4053b5e2f7ce4b5185014a24425">1e69a1115b427853c9e0f207a8e68d21804be4053b5e2f7ce4b5185014a24425</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/7.2.1/bignumber.min.js"></script>
+    <script src="js/nebPay.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/sha256.js"></script>
+    <script src="js/contractApi.js"></script>
+    <script>
+        'use strict';
+        window.addEventListener("load", function () {
+            if (typeof (webExtensionWallet) == "undefined") {
+                $("main.container").prepend('<div class="alert alert-danger" role="alert">Please install <a href="https://github.com/ChengOrangeJu/WebExtensionWallet" class="alert-link">WebExtensionWallet</a> to use Nebulas Defender</div>');
+            }
+            else {
+                let api = new DefenderContract();
+
+                api.getBalance(resp => {
+                    console.log(resp);
+                    let balance = resp.executeErr ? 0 : convertWeiToNas(JSON.parse(resp.result));
+                    $(".balance span").text(balance + " NAS");
+                });
+
+                api.getTransactions(resp => {
+                    if (resp.result) {
+                        let transactions = JSON.parse(resp.result);
+                        let table = $(".transactions tbody");
+
+                        if (transactions.length > 0) {
+                            table.empty();
+                            transactions.sort((a, b) => a.date >= b.date ? -1 : 1);
+                        }
+
+                        for (const transaction of transactions) {
+                            table.append(`<tr><td>${convertUnixStampToScreenDate(transaction.date, true)}</td><td>${transaction.to}</td><td>${convertWeiToNas(transaction.amount)}</td></tr>`);
+                        }
+                    }
+                });
+
+                $(".btn-deposit").click(() => api.deposit());
+
+                $("#passphrase-form").submit(event => {
+                    event.preventDefault();
+
+                    let oldPassphrase = $("#old-passphrase").val();
+                    let newPassphrase = $("#new-passphrase").val();
+
+                    let oldPassphraseHash = getHash(oldPassphrase);
+                    let newPassphraseHash = getHash(newPassphrase);
+
+                    api.setOrChangePasshraseHash(oldPassphraseHash, newPassphraseHash);
+                });
+
+                $("#send-form").submit(event => {
+                    event.preventDefault();
+                    let sendTo = $("#send-form #send-to").val();
+                    let amount = $("#send-form #amount").val();
+                    amount = convertNasToWei(amount);
+
+                    let passphrase = $("#send-form #passphrase").val();
+
+                    let passphraseHash = getHash(passphrase);
+                    api.send(amount, sendTo, passphraseHash);
+                });
+
+            }
+        });
+
+
+        function getHash(passphrase) {
+            if (!passphrase) {
+                return "";
+            }
+
+            return Sha256.hash(passphrase);
+        }
+    </script>
+</body>
+
+</html>
